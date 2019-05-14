@@ -1,0 +1,26 @@
+{% extends "base.twig" %}
+
+{% block topcontent %}
+    {% include 'blocks/stripes/_top-content.twig' %}
+{% endblock %}
+
+{% block article %}
+    <article id="page-{{ post.ID }}" class="page post-{{ post.ID }} type-page status-publish" itemtype="http://schema.org/WebPage" itemscope>
+        <div class="inner-wrapper">
+            <header>
+                <h1 class="entry-title" itemprop="name">{{ post.title }}</h1>
+            </header>
+            <div class="content" itemprop="text">
+                <div class="entry-content">
+                    {{ post.content }}
+                </div>
+            </div>
+            <footer>
+            </footer>
+        </div>
+    </article>
+{% endblock %}
+
+{% block stripes %}
+    {% include 'blocks/stripes/_stripes-container.twig' %}
+{% endblock %}

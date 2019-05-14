@@ -1,1 +1,36 @@
-Copyright {{"now"|date('Y')}}
+<span class="visuallyhidden">Contact Information</span>
+<div class="fcontainer">
+    <div id="jwpw_connect-3" class="widget sidebar-widget primary-sidebar-widget jwpw_connect">
+        <h4 class="widget-title sidebar-widget-title primary-sidebar-widget-title"></h4>
+        <div class="content widget-content sidebar-widget-content primary-sidebar-widget-content">
+            <p class="connect-icons">
+                <a href="https://twitter.com/{{ social_media.twitter_username }}" target="_blank" title="Twitter"><img src="{{ assets }}/twitter-flat-64.png" alt="Twitter" title="Twitter" border="0" /></a>
+                <a href="{{ social_media.linkedin_url }}" target="_blank" title="LinkedIn"><img src="{{ assets }}/linkedin-flat-64.png" alt="LinkedIn" title="LinkedIn" border="0" /></a>
+            </p>
+        </div>
+    </div>
+    <div id="address">
+        <div id="willow_address-3" class="address_container address-block-widget willow_address">
+            <div itemtype="http://schema.org/LegalService" class="slocation " itemscope>
+                <link itemprop="logo" href="{{ assets }}/MistNet-Logo.png">
+                <link itemprop="image" href="{{ assets }}/MistNet-Logo.png">
+                <link itemprop="url" href="https://www.mistnet.ai">
+                <meta itemprop="name" content="MistNet">
+                <div itemprop="address" itemtype="http://schema.org/PostalAddress" itemscope>
+                    <div itemprop="streetAddress">655 Castro St #3</div>
+                    <span itemprop="addressLocality">Mountain View</span>,
+                    <span itemprop="addressRegion">CA</span>
+                    <span itemprop="postalCode">94041</span>
+                </div>
+                <span class="contacts"><span> <span itemprop="telephone">650.665.9117</span></span>
+                                </span>
+            </div>
+        </div>
+    </div>
+    <nav id="footernav">
+        <div id="footernav-wrapper" class="footernav nav-custom">
+            {% include "menu.twig" with {'menu': menu.footernav.get_items, 'footer': true} %}
+        </div>
+    </nav><!-- #nav -->
+    <div class="copyright" title="Copyright &copy; {{ "now"|date('Y') }} MistNet"><span class="copyright_label">Copyright &copy;</span> <span class="copyright_year">{{ "now"|date('Y') }}</span>, <a href="https://www.mistnet.ai/">MistNet</a></div>
+</div>

@@ -1,14 +1,28 @@
 {% extends "base.twig" %}
 
-{% block content %}
-	<div class="content-wrapper">
-		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-			<section class="article-content">
-				<h1 class="article-h1">{{post.title}}</h1>
-				<div class="article-body">
-					{{post.content}}
-				</div>
-			</section>
-		</article>
-	</div><!-- /content-wrapper -->
+{% block above_main_widget %}
+    <!-- banner -->
+    {{ custom_html.above }}
+    <!-- /banner -->
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    {{ breadcrumbs }}
+</div>
+{% endblock %}
+
+{% block article %}
+    <article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+        <section class="article-content">
+            <h1 class="article-h1">{{ post.title }}</h1>
+            <div class="article-body">
+                {{ post.content }}
+            </div>
+        </section>
+    </article>
+{% endblock %}
+
+{% block below_main_widget %}
+    {{ custom_html.below }}
 {% endblock %}

@@ -1,5 +1,6 @@
 {% if menu %}
-	<ul>
+    {% set nav_id = footer ? 'menu-footernav' : 'tnav-toplevel' %}
+    <ul id="{{ nav_id }}" class="menu">
 	{% for item in menu %}
 		<li class="{{ item.classes | join(' ') }}">
 			<a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>

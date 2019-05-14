@@ -1,45 +1,67 @@
-{% block html_head_container %}
-
 {% include 'html-header.twig' %}
-	{% block head %}
-	{% endblock %}
-	</head>
-{% endblock %}
 
-	<body class="{{body_class}}" data-template="base.twig">
-		<a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
-		<header class="header" >
-			{% block header %}
-				<div class="wrapper">
-					<h1 class="hdr-logo" role="banner">
-						<a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
-					</h1>
-					<nav id="nav-main" class="nav-main" role="navigation">
-						{% include "menu.twig" with {'menu': menu.get_items} %}
-					</nav><!-- #nav -->
-				</div>
-			{% endblock %}
-		</header>
+<body class="{{ body_class }}">
+<div class="container">
+    <div class="cwrap">
+        <!-- HEADER -->
+        <header id="header" role="banner">
+            {% block header %}
+                <div id="head" class="header-tag-group">
+                    <div id="logo">
+                        <a href="https://www.mistnet.ai/">
+                            <img src="{{ social_media.theme_logo }}" id="mainlogo" alt="MistNet"/> MistNet
+                        </a>
+                    </div>
+                    <div id="tagline"><a href="{{ domain_path }}/contact-us/" class="tagline-link tagline-text">Published By MistNet</a></div>
+                </div>
+                <nav id="main-nav" role="navigation">
+                    <div id="topnav" class="topnav nav-custom">
+                        {% include "menu.twig" with {'menu': menu.topnav.get_items} %}
+                    </div>
+                </nav><!-- #nav -->
+            {% endblock %}
+        </header>
+        <!--/#head-->
+        {% block above_main_widget %}
+        {% endblock %}
+        <!-- MAIN -->
+        <div id="main">
+            {% block topcontent %}
+            {% endblock %}
+            <div class="mwrap">
+                <section class="content">
+                    <div class="bodytext">
+                        {% block breadcrumbs %}
+                        {% endblock %}
+                        {% block article %}
+                        {% endblock %}
+                    </div>
+                </section>
 
-		<section id="content" role="main" class="content-wrapper">
-			{% if title %}<h1>{{title}}</h1>{% endif %}
-			<div class="wrapper {{sidebar_class}}">
-				{% block content %}
-					Sorry, no content
-				{% endblock %}
-			</div>
-			{% if sidebar %}
-				<aside class="layout-sidebar">
-					{{sidebar}}
-				</aside>
-			{% endif %}
-		</section>
+            </div>
+        </div>
+        {% block stripes %}
+        {% endblock %}
+        {% block below_main_widget %}
+        {% endblock %}
+        {% block footer %}
+            <footer id="footer">
+                {% include 'footer.twig' %}
+            </footer>
+        {% endblock %}
+    </div>
+</div>
 
-		{% block footer %}
-			<footer id="footer">
-				{% include 'footer.twig' %}
-			</footer>
-			{{ function('wp_footer') }}
-		{% endblock %}
-	</body>
+
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+<!--[if lt IE 9]>
+<script src='{{ static_path }}/css3-mediaqueries.1.0.2.min.js'></script>
+<![endif]-->
+<script type='text/javascript' src='{{ static_path }}/enquire.2.0.2.min.js'></script>
+<script type='text/javascript' src='{{ static_path }}/site.min.js'></script>
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="https://js.hs-scripts.com/4833446.js"></script>
+<!-- End of HubSpot Embed Code -->
+<div data-directive="j-gdpr" data-privacy-policy-url="https://www.mistnet.ai/privacy-policy/"></div>
+</body>
 </html>

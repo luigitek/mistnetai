@@ -1,0 +1,14 @@
+{% extends "page.twig" %}
+
+{% block article %}
+    <h1>Posts under {{ title }}</h1>
+
+    {# I don't see any posts available #}
+
+    <div class="error_404">
+        <h2 class="error_404_header">No posts to display</h2>
+        <div class="error_404_message">
+            We're sorry, there are no posts to display here. <div class="return-home">Please return to the <a href="/">Home Page</a></div>
+        </div>
+    </div>
+{% endblock %}%}

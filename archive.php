@@ -27,9 +27,10 @@ if ( is_day() ) {
 	$context['title'] = 'Archive: ' . get_the_date( 'Y' );
 } else if ( is_tag() ) {
 	$context['title'] = single_tag_title( '', false );
+    array_unshift( $templates, 'archive-tag.twig' );
 } else if ( is_category() ) {
 	$context['title'] = single_cat_title( '', false );
-	array_unshift( $templates, 'archive-' . get_query_var( 'cat' ) . '.twig' );
+	array_unshift( $templates, 'archive-category.twig' );
 } else if ( is_post_type_archive() ) {
 	$context['title'] = post_type_archive_title( '', false );
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );

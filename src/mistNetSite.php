@@ -100,7 +100,6 @@ class mistNetSite extends Timber\Site {
         return [ 'google_analytics_id' => of_get_option( 'google_analytics_id' ) ];
     }
 
-
     public function theme_supports() {
         // Add default posts and comments RSS feed links to head.
         add_theme_support( 'automatic-feed-links' );
